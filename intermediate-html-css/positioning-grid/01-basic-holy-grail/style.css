@@ -9,6 +9,10 @@ html {
   height: 100%;
   padding: 16px;
   box-sizing: border-box;
+  display: grid;
+  gap: 15px;
+  /* grid-template: 100px 100px 500px 100px / 450px 1350px; */
+  grid-template: 1fr 1fr 5fr 1fr / 1fr 3fr;
 }
 
 .container div {
@@ -22,10 +26,12 @@ html {
 
 .header {
   background-color: #006157;
+  grid-column: 1 / -1;
 }
 
 .sidebar {
   background-color: #005B94;
+  grid-row: 2 / 4;
 }
 
 .nav {
@@ -38,6 +44,7 @@ html {
 
 .footer {
   background-color: #393f4d;
+  grid-column: 1 / -1;
 }
 
 .article p {
@@ -46,3 +53,69 @@ html {
   color: white;
   text-align: left;
 }
+
+/*
+
+OTHER SOLUTION:
+
+.container {
+  text-align: center;
+  height: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+  display: grid;
+  gap: 15px;
+  grid-template: repeat(8, 1fr) / repeat(8, 1fr);
+  grid-template-areas: "header  header  header  header  header  header  header  header"
+                       "sidebar sidebar nav     nav     nav     nav     nav     nav"
+                       "sidebar sidebar article article article article article article"
+                       "sidebar sidebar article article article article article article"
+                       "sidebar sidebar article article article article article article"
+                       "sidebar sidebar article article article article article article"
+                       "sidebar sidebar article article article article article article"
+                       "footer  footer  footer  footer  footer  footer  footer  footer"
+}
+
+.container div {
+  padding: 15px;
+  font-size: 32px;
+  font-family: Helvetica;
+  font-weight: bold;
+  color: white;
+  border-radius: 15px;
+}
+
+.header {
+  background-color: #006157;
+  grid-area: header;
+}
+
+.sidebar {
+  background-color: #005B94;
+  grid-area: sidebar;
+}
+
+.nav {
+  background-color: #642cde;
+  grid-area: nav;
+}
+
+.article {
+  background-color: #7E1DC3;
+  grid-area: article;
+}
+
+.footer {
+  background-color: #393f4d;
+  grid-area: footer;
+}
+
+.article p {
+  font-size: 18px;
+  font-family: sans-serif;
+  color: white;
+  text-align: left;
+  grid-area: article;
+}
+
+*/
